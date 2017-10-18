@@ -1,4 +1,4 @@
-# Convays Game of Live <img src="./Documents/Images/logo.png" height="50">
+# Convays Game of Live <img src="./documents/art/logo.png" height="50">
 
 ### Alexander Westermann
 
