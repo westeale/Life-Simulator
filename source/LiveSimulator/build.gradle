@@ -1,0 +1,58 @@
+/*
+ * Build File for LiveSimulator
+ *
+ */
+
+def projectVersion = 'alpha-0.0.0'
+
+apply plugin: 'java-library'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+
+
+    testImplementation 'junit:junit:4.12'
+}
+
+sourceSets {
+	main {
+		resources {
+			srcDirs= ["src/main/java"]
+		}
+	}
+}
+
+jar {
+	version = projectVersion
+    
+	manifest {
+		attributes (
+			'Main-Class': 'ch.westeale.dev.conways.Main'
+		)
+	}
+}
+
+task release(type: Copy) {
+	group = build
+	
+	doFirst {
+		delete "${buildDir}/release/${projectVersion}"
+	}
+
+	dependsOn build
+
+	into "${buildDir}/release/${projectVersion}"
+	into ('resources/') {
+		from "resources"
+		
+		exclude '**/*.xcf'
+		exclude '**/*.psd'
+		exclude '**/.gitkeep'
+		
+		includeEmptyDirs = false
+	}
+	from jar
+}
