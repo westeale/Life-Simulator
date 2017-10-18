@@ -3,3 +3,4 @@
 ### Alexander Westermann
 
 A personal project
+Goal: To learn how to optimize simulations in Java
