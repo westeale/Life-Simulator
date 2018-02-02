@@ -1,0 +1,3 @@
+http://www.drdobbs.com/jvm/an-algorithm-for-compressing-space-and-t/184406478
+
+https://github.com/Inoryy/game-of-life-java/blob/master/src/main/java/gof/gui/JavaFXDisplayDriver.java

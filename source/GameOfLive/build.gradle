@@ -1,9 +1,8 @@
 /*
- * Build File for LiveSimulator
- *
+ * Project build-file
  */
 
-def projectVersion = 'alpha-0.0.0'
+def projectVersion = 'alpha-1.1.1'
 
 apply plugin: 'java-library'
 
@@ -12,8 +11,6 @@ repositories {
 }
 
 dependencies {
-
-
     testImplementation 'junit:junit:4.12'
 }
 
@@ -30,7 +27,7 @@ jar {
     
 	manifest {
 		attributes (
-			'Main-Class': 'ch.westeale.dev.conways.Main'
+			'Main-Class': 'link.westermann.gameoflive.Main'
 		)
 	}
 }
@@ -51,8 +48,14 @@ task release(type: Copy) {
 		exclude '**/*.xcf'
 		exclude '**/*.psd'
 		exclude '**/.gitkeep'
+		exclude '**/wave/**'
+		exclude '**/mp3/**'
+		exclude '**/*.mp3'
 		
 		includeEmptyDirs = false
+	}
+	into ('config/') {
+		from "config"
 	}
 	from jar
 }
